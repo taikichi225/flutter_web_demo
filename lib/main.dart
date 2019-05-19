@@ -21,7 +21,7 @@ class Top extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Happy Birthday!!!"),
+        title: Text("Flutter Web Demo"),
       ),
       body: GridView.count(
         crossAxisCount: 3,
@@ -53,7 +53,7 @@ class NextPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Happy Birthday!!!"),
+        title: Text("Flutter Web Demo"),
         leading: GestureDetector(
           child: Container(
             padding: EdgeInsets.all(15),
