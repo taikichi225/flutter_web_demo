@@ -68,12 +68,12 @@ class NextPage extends StatelessWidget {
             children: <Widget>[
               Container(
                 margin: EdgeInsets.only(top: 30, bottom: 15),
-                child: Text("Happy Birthday!!!", style: TextStyle(fontSize: 60),),
+                child: Text("Happy Birthday!!!", style: TextStyle(fontSize: 60, fontFamily: "Ewert"),),
               ),
               Image.asset("birthday_nextpage.png"),
               Container(
                 margin: EdgeInsets.only(top: 15),
-                child: Text("To ME!!!", style: TextStyle(fontSize: 60),),
+                child: Text("To ME!!!", style: TextStyle(fontSize: 60, fontFamily: "Ewert"),),
               ),
             ],
           ),
