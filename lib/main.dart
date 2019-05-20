@@ -21,7 +21,7 @@ class Top extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Flutter Web Demo"),
+        title: Text("Flutter for Web Demo"),
       ),
       body: GridView.count(
         crossAxisCount: 3,
@@ -30,7 +30,15 @@ class Top extends StatelessWidget {
             margin: EdgeInsets.all(5),
             width: MediaQuery.of(context).size.width/3,
             height: MediaQuery.of(context).size.width/3,
-            child: Image.asset("birthday${index%9}.jpg", fit:BoxFit.fill),
+            child: GestureDetector(
+              child: Hero(
+                tag: "birthday${index%9}.jpg",
+                child: Image.asset("birthday${index%9}.jpg", fit:BoxFit.fill),
+              ),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => ImageDetail("birthday${index%9}.jpg")));
+              },
+            ),
           );
         }),
       ),
@@ -47,13 +55,43 @@ class Top extends StatelessWidget {
   }
 }
 
+class ImageDetail extends StatelessWidget {
+  final image;
+
+  ImageDetail(this.image);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Flutter for Web Demo"),
+        leading: GestureDetector(
+          child: Container(
+            padding: EdgeInsets.all(15),
+            child: Image.asset("back.png"),
+          ),
+          onTap: () { Navigator.of(context).pop(); },
+        ),
+      ),
+      body: Container(
+        margin: EdgeInsets.all(10),
+        child: Center(
+          child: Hero(
+            tag: "$image",
+            child: Image.asset("$image"),
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 class NextPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Flutter Web Demo"),
+        title: Text("Flutter for Web Demo"),
         leading: GestureDetector(
           child: Container(
             padding: EdgeInsets.all(15),
